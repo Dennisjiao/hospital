@@ -1,5 +1,6 @@
 package com.atguigu.yygh.hosp.controller;
 
+import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.hosp.service.HospitalSetService;
 import com.atguigu.yygh.model.hosp.HospitalSet;
 import io.swagger.annotations.Api;
@@ -24,18 +25,29 @@ public class HospitalController {
     //查询医院设置表中的所有数据
     @ApiOperation(value = "获取医院所有设置信息")
     @GetMapping("findAll")
+    public Result findAllHospitalSet() {
+        //调用Service中的方法
+        List<HospitalSet> list = hospitalSetService.list();
+        return Result.ok(list);
+        //return list;
+    }
+
+    /*//查询医院设置表中的所有数据
+    @ApiOperation(value = "获取医院所有设置信息")
+    @GetMapping("findAll")
     public List<HospitalSet> findAllHospitalSet() {
         //调用Service中的方法
         List<HospitalSet> list = hospitalSetService.list();
         return list;
-    }
+    }*/
 
     //删除医院设置(逻辑删除)
     @ApiOperation(value = "逻辑删除医院设置信息")
     @DeleteMapping("{id}")
-    public boolean removeHospitalSet(@PathVariable Long id){
+    public Result removeHospitalSet(@PathVariable Long id){
         boolean flag = hospitalSetService.removeById(id);
-        return flag;
+        return Result.ok(flag);
+        //return flag;
     }
 
 
