@@ -1,6 +1,7 @@
 package com.atguigu.yygh.hosp.controller;
 
 import com.alibaba.excel.util.StringUtils;
+import com.atguigu.yygh.common.exception.YyghException;
 import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.common.utils.MD5;
 import com.atguigu.yygh.hosp.service.HospitalSetService;
@@ -106,6 +107,11 @@ public class HospitalController {
     //5根据id获取医院设置接口
     @GetMapping("getHospSet/{id}")
     public Result getHospitalSet(@PathVariable Long id){
+        try {
+            int a = 1/0;
+        }catch(Exception e){
+            throw new YyghException("失败",201);
+        }
         HospitalSet hospitalSet = hospitalSetService.getById(id);
         return Result.ok(hospitalSet);
     }
@@ -126,6 +132,29 @@ public class HospitalController {
     @DeleteMapping("batchRemove")
     public Result batchRemoveHosptialSet(@RequestBody List<Long> idList){
         hospitalSetService.removeByIds(idList);
+        return Result.ok();
+    }
+
+    //8医院设置锁定和解锁功能
+    //因为是修改status值所以可以用putmapping
+    @PutMapping("lockHospitalSet/{id}/{status}")
+    public Result lockHospitalSet(@PathVariable Long id, @PathVariable Integer status){
+        //根据id查询医院设置信息
+        HospitalSet hospitalSet = hospitalSetService.getById(id);
+        //设置状态
+        hospitalSet.setStatus(status);
+        //调用方法
+        hospitalSetService.updateById(hospitalSet);
+        return Result.ok();
+    }
+
+    //9发送签名密钥(短信验证码) 之后加上短信验证功能
+    @PutMapping("sendKey/{id}")
+    public Result lockHospitalSet(@PathVariable Long id){
+        HospitalSet hospitalSet = hospitalSetService.getById(id);
+        String signKey = hospitalSet.getSignKey();
+        String hoscode = hospitalSet.getHoscode();
+        //TODO 发送短信
         return Result.ok();
     }
 }
