@@ -108,17 +108,17 @@ public class HospitalController {
     //5根据id获取医院设置接口
     @GetMapping("getHospSet/{id}")
     public Result getHospitalSet(@PathVariable Long id){
-        try {
-            int a = 1/0;
-        }catch(Exception e){
-            throw new YyghException("失败",201);
-        }
+//        try {
+//            int a = 1/0;
+//        }catch(Exception e){
+//            throw new YyghException("失败",201);
+//        }
         HospitalSet hospitalSet = hospitalSetService.getById(id);
         return Result.ok(hospitalSet);
     }
 
     //6修改医院设置接口
-    //先查询，再修改
+    //先查询，再修改   RequestBody是传递的json数据类，在前端中要使用data:来通过json来转换数据
     @PostMapping("updateHospitalSet")
     public Result updateHospitalSet(@RequestBody HospitalSet hospitalSet){
         boolean flag = hospitalSetService.updateById(hospitalSet);
