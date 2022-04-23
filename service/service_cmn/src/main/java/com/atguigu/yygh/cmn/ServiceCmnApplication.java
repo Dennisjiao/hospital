@@ -1,4 +1,4 @@
-package com.taguigu.yygh.cmn;
+package com.atguigu.yygh.cmn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.taguigu.yygh.cmn.config;
+package com.atguigu.yygh.cmn.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
