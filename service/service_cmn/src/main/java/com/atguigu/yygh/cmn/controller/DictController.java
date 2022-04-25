@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/smn/dict")
+@RequestMapping("/admin/cmn/dict")
 @Api(value ="数据字典")
 @CrossOrigin
 public class DictController {
