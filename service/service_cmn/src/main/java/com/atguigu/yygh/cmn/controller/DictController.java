@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -28,4 +29,14 @@ public class DictController {
         List<Dict> list = dictService.findChildData(id);
         return  Result.ok(list);
     }
+    //导出数据字典接口
+    @GetMapping("exportData")
+    //加入response是为了优化用户体验，可以让用户自己选择下载位置
+    //因为不用返回数据，所以不用result类型了s
+    public void exportDict(HttpServletResponse response){
+        dictService.exportDictData(response);
+    }
+
+
+
 }

@@ -1,12 +1,19 @@
 package com.atguigu.yygh.cmn.service.impl;
 
+import com.alibaba.excel.EasyExcel;
 import com.atguigu.yygh.cmn.service.DictService;
 import com.atguigu.yygh.model.cmn.Dict;
+import com.atguigu.yygh.vo.cmn.DictEeVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.yygh.cmn.mapper.DictMapper;
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,6 +35,35 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
             dict.setHasChildren(isChild);             //把得到的true或者false，set到Hash表中
         }
         return dictList;                              //最后返回集合，返回的集合中的Dict中就会有true和false的值
+    }
+
+    //导出数据字典接口
+    @Override
+    public void exportDictData(HttpServletResponse response) {
+        //设置下载信息
+        response.setContentType("application/vnd.ms-excel");           //content类型是excel类型
+        response.setCharacterEncoding("utf-8");                        //
+        String fileName = "dict";                                      //设置文件名称
+        response.setHeader("Content-disposition", "attachment;filename="+ fileName + ".xlsx");
+
+        //查询数据库
+        List<Dict> dictList = baseMapper.selectList(null);
+        //将dict转换为dictEeVo操作
+        List<DictEeVo> dictVoList = new ArrayList<>();
+        for(Dict dict:dictList){
+            DictEeVo dictEeVo = new DictEeVo();
+            //dictEeVo.setId(dict.getId());  和下面的BeanUtils作用一样  先get值，后set进去值
+            BeanUtils.copyProperties(dict,dictEeVo);
+            dictVoList.add(dictEeVo);
+        }
+
+        //调用方法进行写操作
+        try {
+            EasyExcel.write(response.getOutputStream(), DictEeVo.class).sheet("dict").doWrite(dictVoList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     //判断id下面是否有子节点
