@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -21,6 +22,15 @@ public class DictController {
 
     @Autowired
     private DictService dictService;
+
+
+    //导入数据
+    @PostMapping("importData")  //MultipartFile是Spring中得到上传的文件
+    public Result importData(MultipartFile file){
+        dictService.importDictData(file);       //实现导入操作
+        return Result.ok();
+
+    }
 
     //根据数据id查询id下的子数据(由id查parentId)
     @GetMapping("findChildData/{id}")

@@ -1,6 +1,7 @@
 package com.atguigu.yygh.cmn.service.impl;
 
 import com.alibaba.excel.EasyExcel;
+import com.atguigu.yygh.cmn.listener.DictListener;
 import com.atguigu.yygh.cmn.service.DictService;
 import com.atguigu.yygh.model.cmn.Dict;
 import com.atguigu.yygh.vo.cmn.DictEeVo;
@@ -9,7 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.yygh.cmn.mapper.DictMapper;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,6 +21,9 @@ import java.util.List;
 
 @Service
 public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements DictService {
+
+//    @Autowired
+//    private DictMapper dictMapper;
 
     //根据id查询子数据列表
     @Override
@@ -63,6 +69,20 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    //导入数据字典 需要一个监听器
+    @Override
+    public void importDictData(MultipartFile file) {
+        //第一个是这个文件的流  第二个文件是实体类， 第三个是监听器
+        try {
+            //EasyExcel.read(file.getInputStream(),DictEeVo.class,new DictListener(dictMapper)).sheet().doRead();    //或者不在上面写Autowired 直接传BaseMapper也可以
+            EasyExcel.read(file.getInputStream(),DictEeVo.class,new DictListener(baseMapper)).sheet().doRead();    //这样也可以 加sheet和doRead就可以将excel表提出来并加到数据库中
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

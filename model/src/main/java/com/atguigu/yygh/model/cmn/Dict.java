@@ -28,6 +28,7 @@ public class Dict {
     @ApiModelProperty(value = "id")
     private Long id;
 
+
     @ApiModelProperty(value = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField("create_time")
@@ -45,6 +46,7 @@ public class Dict {
     @ApiModelProperty(value = "其他参数")
     @TableField(exist = false)
     private Map<String,Object> param = new HashMap<>();
+
 
     @ApiModelProperty(value = "上级id")
     @TableField("parent_id")
