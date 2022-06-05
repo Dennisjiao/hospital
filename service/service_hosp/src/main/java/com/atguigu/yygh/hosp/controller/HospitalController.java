@@ -29,7 +29,6 @@ public class HospitalController {
     //http://localhost:8080/admin/hosp/hospitalSet/findAll
 
     //增删改查方法
-
     //查询医院设置表中的所有数据
     @ApiOperation(value = "获取医院所有设置信息")
     @GetMapping("findAll")
