@@ -11,6 +11,8 @@ import com.atguigu.yygh.cmn.mapper.DictMapper;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +29,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
     //根据id查询子数据列表
     @Override
+    @Cacheable(value = "dict",keyGenerator = "keyGenerator")
     //因为再ServiceImpl中已经有了@Autowired所以不需要再注入Mapper了,直接使用baseMapper.方法就可以使用
     public List<Dict> findChildData(Long id) {
 
@@ -74,6 +77,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
     //导入数据字典 需要一个监听器
     @Override
+    @CacheEvict(value = "dict", allEntries=true)
     public void importDictData(MultipartFile file) {
         //第一个是这个文件的流  第二个文件是实体类， 第三个是监听器
         try {
