@@ -13,9 +13,10 @@ spring:
     cache: false
     #配置模板路径，默认是templates，可以不用配置
     prefix: classpath:/templates/
+    suffix:  .html
   redis:
-    host: 192.168.44.165
-    #192.168.44.165是本地局域网
+    host: 127.0.0.1
+    #127.0.0.1是本地局域网
     port: 6379
     database: 0
     timeout: 1800000
@@ -29,9 +30,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.44.165:3306/yygh_manage?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/yygh_manage?characterEncoding=utf-8&useSSL=false
     username: root
-    password: root123
+    password: mysql
     hikari:
       connection-test-query: SELECT 1
       connection-timeout: 60000
