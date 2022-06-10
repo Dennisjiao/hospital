@@ -53,7 +53,6 @@ public class ApiController {
         Hospital hospital = hospitalService.getByHoscode(hoscode);
         return Result.ok(hospital);
     }
-
     //上传医院接口
     @PostMapping("saveHospital")
     public Result saveHosp(HttpServletRequest request){
