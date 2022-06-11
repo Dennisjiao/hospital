@@ -57,20 +57,17 @@ public class ApiController {
         String hoscode = (String)paramMap.get("hoscode");
         String hosScheduleId = (String)paramMap.get("hosScheduleId");
 
+        if(StringUtils.isEmpty(hoscode)) {
+            throw new YyghException(ResultCodeEnum.PARAM_ERROR);
+        }
         /**
          * 签名校验
          * **/
-        //1.获取医院系统传递过来的签名,签名进行了MD5加密，所以转换为String对比
-        String hospSign = (String)paramMap.get("sign");
 
-        //2.根据传递过来的医院编码，查询数据库，查询签名是否一样
-        String signKey = hospitalSetService.getSignKey(hoscode);
-        //3.把数据库查询签名进行MD5加密
-        String signKeyMD5 = MD5.encrypt(signKey);
-        //4.判断签名是否一致，传过来的签名和数据库的签名是否一致
-        if(!hospSign.equals(signKeyMD5)){
+        if(!HttpRequestHelper.isSignEquals(paramMap, hospitalSetService.getSignKey(hoscode))) {
             throw new YyghException(ResultCodeEnum.SIGN_ERROR);
         }
+
         scheduleService.remove(hoscode,hosScheduleId);
         return Result.ok();
 
@@ -91,20 +88,17 @@ public class ApiController {
         int page = StringUtils.isEmpty(paramMap.get("page")) ? 1:Integer.parseInt((String)paramMap.get("page"));
         int limit = StringUtils.isEmpty(paramMap.get("limit")) ? 1:Integer.parseInt((String)paramMap.get("limit"));
 
+        if(StringUtils.isEmpty(hoscode)) {
+            throw new YyghException(ResultCodeEnum.PARAM_ERROR);
+        }
+
         /**
          * 签名校验
          * **/
-        //1.获取医院系统传递过来的签名,签名进行了MD5加密，所以转换为String对比
-        String hospSign = (String)paramMap.get("sign");
-
-        //2.根据传递过来的医院编码，查询数据库，查询签名是否一样
-        String signKey = hospitalSetService.getSignKey(hoscode);
-        //3.把数据库查询签名进行MD5加密
-        String signKeyMD5 = MD5.encrypt(signKey);
-        //4.判断签名是否一致，传过来的签名和数据库的签名是否一致
-        if(!hospSign.equals(signKeyMD5)){
+        if(!HttpRequestHelper.isSignEquals(paramMap, hospitalSetService.getSignKey(hoscode))) {
             throw new YyghException(ResultCodeEnum.SIGN_ERROR);
         }
+
 
         //对实体类进行封装 通过对象做传递
         ScheduleQueryVo scheduleQueryVo = new ScheduleQueryVo();
@@ -116,7 +110,7 @@ public class ApiController {
     }
 
     //上传排班接口
-    @PatchMapping("saveSchedule")
+    @PostMapping("saveSchedule")
     public Result saveSchedule(HttpServletRequest request){
         //获取传递过来的信息
         Map<String, String[]> requestMap = request.getParameterMap();
@@ -124,18 +118,14 @@ public class ApiController {
         //得到科室编号和医院编号
         String hoscode = (String)paramMap.get("hoscode");
 
+        if(StringUtils.isEmpty(hoscode)) {
+            throw new YyghException(ResultCodeEnum.PARAM_ERROR);
+        }
         /**
          * 签名校验
          * **/
-        //1.获取医院系统传递过来的签名,签名进行了MD5加密，所以转换为String对比
-        String hospSign = (String)paramMap.get("sign");
 
-        //2.根据传递过来的医院编码，查询数据库，查询签名是否一样
-        String signKey = hospitalSetService.getSignKey(hoscode);
-        //3.把数据库查询签名进行MD5加密
-        String signKeyMD5 = MD5.encrypt(signKey);
-        //4.判断签名是否一致，传过来的签名和数据库的签名是否一致
-        if(!hospSign.equals(signKeyMD5)){
+        if(!HttpRequestHelper.isSignEquals(paramMap, hospitalSetService.getSignKey(hoscode))) {
             throw new YyghException(ResultCodeEnum.SIGN_ERROR);
         }
 
