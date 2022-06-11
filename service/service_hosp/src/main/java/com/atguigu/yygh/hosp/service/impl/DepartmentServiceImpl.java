@@ -23,6 +23,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentRepository departmentRepository;
 
 
+    //上传科室接口
     @Override
     public void save(Map<String, Object> paramMap) {
         //paramMap 转换department对象
@@ -46,6 +47,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         }
     }
 
+    //查询科室接口
     @Override
     public Page<Department> findPageDepartment(int page, int limit, DepartmentQueryVo departmentQueryVo) {
         //创建pageable对象设置当前页和每页显示数(记录数)
