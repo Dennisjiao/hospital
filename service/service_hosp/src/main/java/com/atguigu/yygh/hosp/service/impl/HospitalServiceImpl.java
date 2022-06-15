@@ -4,7 +4,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.atguigu.yygh.hosp.repository.HospitalRepository;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.model.hosp.Hospital;
+import com.atguigu.yygh.vo.hosp.HospitalQueryVo;
+import com.atguigu.yygh.vo.hosp.HospitalSetQueryVo;
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -50,25 +55,35 @@ public class HospitalServiceImpl implements HospitalService {
         return hospital;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //医院列表条件查询分页
+    @Override
+    public Page selectHospPage(Integer page, Integer limit, HospitalQueryVo hospitalQueryVo) {
+        //创建pageable对象
+        Pageable pageable = PageRequest.of(page-1,limit);
+        //创建条件匹配器
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING)
+                .withIgnoreCase(true);
+        //hospitalSetQueryVo 转为hospital对象
+        Hospital hospital = new Hospital();
+        BeanUtils.copyProperties(hospitalQueryVo, hospital);
+        //创建example实例(对象)
+        Example<Hospital> example = Example.of(hospital, matcher);
+        //调用方法查询
+        Page<Hospital> all = hospitalRepository.findAll(example, pageable);
+        return all;
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
