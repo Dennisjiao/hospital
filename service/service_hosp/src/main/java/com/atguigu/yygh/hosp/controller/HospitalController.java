@@ -6,6 +6,7 @@ import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.common.utils.MD5;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.hosp.service.HospitalSetService;
+import com.atguigu.yygh.model.hosp.Hospital;
 import com.atguigu.yygh.model.hosp.HospitalSet;
 import com.atguigu.yygh.vo.hosp.HospitalQueryVo;
 import com.atguigu.yygh.vo.hosp.HospitalSetQueryVo;
@@ -32,6 +33,10 @@ public class HospitalController {
     @GetMapping("list/{page}/{limit}")
     public Result listHosp(@PathVariable Integer page, @PathVariable Integer limit, HospitalQueryVo hospitalQueryVo){
         Page pageModel = hospitalService.selectHospPage(page, limit, hospitalQueryVo);
+
+        List<Hospital> contact = pageModel.getContent();
+        long totalElements = pageModel.getTotalElements();
+        
         return  Result.ok(pageModel);
     }
 
