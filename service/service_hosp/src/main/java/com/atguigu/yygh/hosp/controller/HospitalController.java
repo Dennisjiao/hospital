@@ -36,8 +36,16 @@ public class HospitalController {
 
         List<Hospital> contact = pageModel.getContent();
         long totalElements = pageModel.getTotalElements();
-        
+
         return  Result.ok(pageModel);
+    }
+
+    //更新医院的上线状态
+    @ApiOperation(value = "更新医院上线状态")
+    @GetMapping("updateHospStatus/{id}/{status}")
+    public Result updateHospStatus(@PathVariable String id,@PathVariable Integer status){
+        hospitalService.updateStatus(id, status);
+        return Result.ok();
     }
 
 }
