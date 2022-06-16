@@ -1,6 +1,7 @@
 package com.atguigu.yygh.hosp.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.yygh.cmn.client.DictFeignClient;
 import com.atguigu.yygh.hosp.repository.HospitalRepository;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.model.hosp.Hospital;
@@ -13,12 +14,16 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class HospitalServiceImpl implements HospitalService {
     @Autowired
     private HospitalRepository hospitalRepository;
+
+    @Autowired
+    private DictFeignClient dictFeignClient;
 
     //新增数据
     @Override
@@ -70,11 +75,27 @@ public class HospitalServiceImpl implements HospitalService {
         //创建example实例(对象)
         Example<Hospital> example = Example.of(hospital, matcher);
         //调用方法查询
-        Page<Hospital> all = hospitalRepository.findAll(example, pageable);
-        return all;
+        Page<Hospital> pages = hospitalRepository.findAll(example, pageable);
+        //List<Hospital> content = pages.getContent();//pages中包含医院信息，但是没有医院等级信息.  content包含医院所有信息的集合
+        pages.getContent().stream().forEach(item ->{
+            this.setHospitalHosType(item);
+        });
+
+        return pages;
     }
 
+    private Hospital setHospitalHosType(Hospital hospital) {
+        //根据dicttype和value获得医院等级名称
+        String hostypeString = dictFeignClient.getName("Hostype", hospital.getHostype());
+        //查省 市 地区
+        String provinceString = dictFeignClient.getName(hospital.getProvinceCode());
+        String cityString = dictFeignClient.getName(hospital.getCityCode());
+        String districtString = dictFeignClient.getName(hospital.getDistrictCode());
 
+        hospital.getParam().put("fullAddress", provinceString+cityString+districtString);
+        hospital.getParam().put("hostypeString", hostypeString);
+        return hospital;
+    }
 }
 
 
