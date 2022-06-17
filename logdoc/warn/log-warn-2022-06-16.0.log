@@ -1,0 +1,254 @@
+2022-06-16 00:39:42.651 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.661 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.663 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.664 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.698 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.699 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.700 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.700 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:39:42.978 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 00:39:43.254 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalController': Unsatisfied dependency expressed through field 'hospitalService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalServiceImpl': Unsatisfied dependency expressed through field 'dictFeignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.atguigu.yygh.cmn.client.DictFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-16 00:44:47.502 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.506 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.507 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.508 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.526 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.527 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.528 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.528 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:44:47.691 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 00:44:47.706 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 00:44:47.797 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalController': Unsatisfied dependency expressed through field 'hospitalService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalServiceImpl': Unsatisfied dependency expressed through field 'dictFeignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.atguigu.yygh.cmn.client.DictFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-16 00:47:54.289 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.293 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.295 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.295 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.314 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.315 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.315 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.316 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:47:54.480 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 00:47:54.496 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 00:47:54.580 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalController': Unsatisfied dependency expressed through field 'hospitalService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hospitalServiceImpl': Unsatisfied dependency expressed through field 'dictFeignClient'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.atguigu.yygh.cmn.client.DictFeignClient' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-16 00:50:56.682 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.686 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.688 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.688 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.707 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.708 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.708 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.709 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:50:56.873 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 00:50:56.889 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 00:50:59.455 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 00:50:59.461 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 00:53:42.706 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.711 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.712 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.713 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.731 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.732 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.732 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.732 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 00:53:42.918 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 00:53:44.949 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 00:53:44.954 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 08:15:45.337 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.365 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.366 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.367 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.394 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.395 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.396 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.396 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 08:15:45.723 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 08:15:45.742 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 08:15:48.142 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 08:15:48.149 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 20:53:32.919 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.947 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.949 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.949 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.972 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.973 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.974 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:32.974 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 20:53:33.289 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 20:53:33.305 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 20:53:36.189 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 20:53:36.194 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 21:15:03.842 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.845 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.847 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.847 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.866 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.867 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.867 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:03.867 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:15:04.076 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 21:15:06.165 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 21:15:06.170 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 21:23:28.407 [http-nio-8208-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [java.lang.RuntimeException: com.netflix.client.ClientException: Load balancer does not have available server for client: service-cmn]
+2022-06-16 21:33:41.302 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.307 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.308 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.309 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.329 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.330 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.330 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.331 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 21:33:41.503 [restartedMain] WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer - Unable to start LiveReload server
+2022-06-16 21:33:41.523 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 21:33:43.600 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 21:33:43.605 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 22:35:20.864 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.868 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.869 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.870 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.891 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.892 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.892 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:20.893 [restartedMain] WARN  org.springframework.data.convert.CustomConversions - Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2022-06-16 22:35:21.087 [restartedMain] WARN  o.s.d.m.c.index.MongoPersistentEntityIndexCreator - Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-06-16 22:35:23.382 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2022-06-16 22:35:23.389 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.

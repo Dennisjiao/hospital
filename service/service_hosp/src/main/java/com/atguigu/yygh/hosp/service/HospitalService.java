@@ -17,5 +17,9 @@ public interface HospitalService {
 
     Page selectHospPage(Integer page, Integer limit, HospitalQueryVo hospitalQueryVo);
 
+    //更新医院的上线状态
     void updateStatus(String id, Integer status);
+
+    //医院的详情信息
+    Map<String, Object> getHospById(String id);
 }

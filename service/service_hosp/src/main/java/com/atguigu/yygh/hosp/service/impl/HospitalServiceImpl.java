@@ -13,9 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class HospitalServiceImpl implements HospitalService {
@@ -84,6 +82,7 @@ public class HospitalServiceImpl implements HospitalService {
         return pages;
     }
 
+    //更新医院的上线状态
     @Override
     public void updateStatus(String id, Integer status) {
         //根据id查询医院信息
@@ -93,6 +92,20 @@ public class HospitalServiceImpl implements HospitalService {
         hospital.setUpdateTime(new Date());
         hospitalRepository.save(hospital);
 
+    }
+
+    @Override
+    public Map<String, Object> getHospById(String id) {
+        Map<String, Object> result = new HashMap<>();
+        Hospital hospital = this.setHospitalHosType(hospitalRepository.findById(id).get());
+        result.put("hospital",hospital);
+
+        //医院基本信息(包括医院等级)
+        //单独处理更直观
+        result.put("bookingRule", hospital.getBookingRule());
+        //不需要重复返回
+        hospital.setBookingRule(null);
+        return result;
     }
 
     private Hospital setHospitalHosType(Hospital hospital) {
