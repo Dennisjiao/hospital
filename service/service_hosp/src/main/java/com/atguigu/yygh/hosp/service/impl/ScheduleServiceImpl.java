@@ -2,6 +2,7 @@ package com.atguigu.yygh.hosp.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.yygh.hosp.repository.ScheduleRepository;
+import com.atguigu.yygh.hosp.service.DepartmentService;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.hosp.service.ScheduleService;
 import com.atguigu.yygh.model.hosp.Department;
@@ -37,6 +38,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Autowired
     private HospitalService hospitalService;
+
+    @Autowired
+    private DepartmentService departmentService;
 
     //上传排班数据
     @Override
@@ -135,7 +139,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         );
 
         AggregationResults<BookingScheduleRuleVo> totalAggResults = mongoTemplate
-                .aggregate(agg, Schedule.class, BookingScheduleRuleVo.class);
+                .aggregate(totalAgg, Schedule.class, BookingScheduleRuleVo.class);
         int total = totalAggResults.getMappedResults().size();  //总记录数
 
         //把日期对应星期获取
@@ -160,6 +164,29 @@ public class ScheduleServiceImpl implements ScheduleService {
         result.put("baseMap",baseMap);
 
         return result;
+    }
+
+    //根据医院编号、科室编号和工作日期，查询排班详细信息
+    @Override
+    public List<Schedule> getDetailSchedule(String hoscode, String depcode, String workDate) {
+        //根据参数查询monogDB
+        List<Schedule> scheduleList = scheduleRepository
+                .findScheduleByHoscodeAndDepcodeAndWorkDate(hoscode, depcode, new DateTime(workDate).toDate());
+        //把得到list集合遍历， 向设置其他值: 医院名称、 科室名称日期对应星期
+        scheduleList.stream().forEach(item ->{
+            this.packageSchedule(item);
+        });
+        return scheduleList;
+    }
+
+    //封装排班详情其他值 医院名称、科室名称、日期对应星期
+    private void packageSchedule(Schedule schedule) {
+        //设置医院名称
+        schedule.getParam().put("hosname", hospitalService.getHospName(schedule.getHoscode()));
+        //设置科室名称
+        schedule.getParam().put("depname", departmentService.getDepName(schedule.getHoscode(),schedule.getDepcode()));
+        //设置日期对应星期
+        schedule.getParam().put("dayOfWeek", this.getDayOfWeek(new DateTime(schedule.getWorkDate())));
     }
 
     /**
