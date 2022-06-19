@@ -115,7 +115,7 @@ public class HospitalServiceImpl implements HospitalService {
         if (hospital != null){
             return hospital.getHosname();
         }
-        return null;
+        return "";
     }
 
     private Hospital setHospitalHosType(Hospital hospital) {
