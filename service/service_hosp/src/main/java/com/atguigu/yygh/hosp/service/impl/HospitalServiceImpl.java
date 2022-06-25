@@ -118,6 +118,12 @@ public class HospitalServiceImpl implements HospitalService {
         return "";
     }
 
+    //根据医院名称查询
+    @Override
+    public List<Hospital> findByHosname(String hosname) {
+        return hospitalRepository.findHospitalByHosnameLike(hosname);
+    }
+
     private Hospital setHospitalHosType(Hospital hospital) {
         //根据dicttype和value获得医院等级名称
         String hostypeString = dictFeignClient.getName("Hostype", hospital.getHostype());
