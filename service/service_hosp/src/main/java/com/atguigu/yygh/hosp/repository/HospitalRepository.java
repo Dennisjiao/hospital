@@ -12,6 +12,6 @@ public interface HospitalRepository extends MongoRepository<Hospital, String> {
     //在Impl实现类中 判断是否存在数据
     Hospital getHospitalByHoscode(String hoscode);
 
-    //根据医院名称查询
+    //模糊查询名字
     List<Hospital> findHospitalByHosnameLike(String hosname);
 }

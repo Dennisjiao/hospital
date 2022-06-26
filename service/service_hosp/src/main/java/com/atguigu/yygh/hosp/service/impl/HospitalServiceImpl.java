@@ -118,7 +118,6 @@ public class HospitalServiceImpl implements HospitalService {
         return "";
     }
 
-    //根据医院名称查询
     @Override
     public List<Hospital> findByHosname(String hosname) {
         return hospitalRepository.findHospitalByHosnameLike(hosname);
